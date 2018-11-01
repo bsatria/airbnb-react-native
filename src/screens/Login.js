@@ -6,6 +6,9 @@ import {
   ScrollView,
   KeyboardAvoidingView,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../store/actions';
 import { PropTypes } from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -15,7 +18,7 @@ import NextArrowButton from '../components/buttons/NextArrowButton';
 import Notification from '../components/Notification';
 import Loader from '../components/Loader';
 
-export default class Login extends Component {
+class LogIn extends Component {
   constructor(props) {
     super(props);
 
@@ -24,6 +27,7 @@ export default class Login extends Component {
       validEmail: false,
       validPassword: false,
       emailAddress: '',
+      password: '',
       loadingVisible: false,
     };
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
@@ -38,7 +42,8 @@ export default class Login extends Component {
       loadingVisible: true,
     });
     setTimeout(() => {
-      if (this.state.emailAddress === 'bagas@gmail.com') {
+      const { emailAddress, password } = this.state;
+      if (this.props.logIn(emailAddress, password)) {
         this.setState({
           formValid: false,
           loadingVisible: false,
@@ -76,6 +81,9 @@ export default class Login extends Component {
     }
   }
   handleChangePassword(password) {
+    this.setState({
+      password,
+    });
     if (!this.state.validPassword) {
       if (password.length >= 4) {
         this.setState({
@@ -179,3 +187,18 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    loggedInStatus: state.loggedInStatus,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(ActionCreators, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LogIn);

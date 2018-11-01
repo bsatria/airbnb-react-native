@@ -1,9 +1,4 @@
-/**
- * Airbnb Clone App
- * @author: Andy
- * @Url: https://www.cubui.com
- */
-import colors from '../styles/colors';
+import { Colors } from '../themes';
 
 const listing1Photo = require('./photos/listing1.png');
 const listing2Photo = require('./photos/listing2.png');
@@ -32,12 +27,12 @@ const listings = [
         id: 1,
         photo: listing1Photo,
         type: 'BOAT RIDE',
-        title: 'Sail past Japan\'s largest port with a certified skipper',
+        title: "Sail past Japan's largest port with a certified skipper",
         location: 'Tokyo, Japan',
         price: 60,
         priceType: 'per person',
         stars: 29,
-        color: colors.gray04,
+        color: Colors.gray04,
       },
       {
         id: 2,
@@ -48,7 +43,7 @@ const listings = [
         price: 70,
         priceType: 'per person',
         stars: 4,
-        color: colors.darkOrange,
+        color: Colors.darkOrange,
       },
       {
         id: 3,
@@ -59,7 +54,7 @@ const listings = [
         price: 47,
         priceType: 'per person',
         stars: 30,
-        color: colors.black,
+        color: Colors.black,
       },
       {
         id: 4,
@@ -70,18 +65,18 @@ const listings = [
         price: 57,
         priceType: 'per person',
         stars: 70,
-        color: colors.brown01,
+        color: Colors.brown01,
       },
       {
         id: 5,
         photo: listing5Photo,
         type: 'SURFING',
-        title: 'Surf Bondi\'s waves, then eat & drink like a local',
+        title: "Surf Bondi's waves, then eat & drink like a local",
         location: 'Sydney, Australia',
         price: 61,
         priceType: 'per person',
         stars: 66,
-        color: colors.blue,
+        color: Colors.blue,
       },
       {
         id: 6,
@@ -92,7 +87,7 @@ const listings = [
         price: 55,
         priceType: 'per person',
         stars: 15,
-        color: colors.brown02,
+        color: Colors.brown02,
       },
     ],
   },
@@ -110,7 +105,7 @@ const listings = [
         price: 72,
         priceType: 'per night',
         stars: 101,
-        color: colors.green01,
+        color: Colors.green01,
       },
       {
         id: 8,
@@ -121,7 +116,7 @@ const listings = [
         price: 69,
         priceType: 'per night',
         stars: 119,
-        color: colors.brown01,
+        color: Colors.brown01,
       },
       {
         id: 9,
@@ -132,7 +127,7 @@ const listings = [
         price: 152,
         priceType: 'per night',
         stars: 320,
-        color: colors.darkOrange,
+        color: Colors.darkOrange,
       },
       {
         id: 10,
@@ -143,18 +138,18 @@ const listings = [
         price: 116,
         priceType: 'per night',
         stars: 300,
-        color: colors.gray04,
+        color: Colors.gray04,
       },
       {
         id: 11,
         photo: listing11Photo,
         type: 'ENTIRE BOAT - 2 BEDS',
-        title: 'A Pirate\'s Life for Me Houseboar!',
+        title: "A Pirate's Life for Me Houseboar!",
         location: 'Charleston, United States',
         price: 182,
         priceType: 'per night',
         stars: 132,
-        color: colors.green01,
+        color: Colors.green01,
       },
     ],
   },
@@ -167,11 +162,11 @@ const listings = [
         id: 12,
         photo: listing12Photo,
         type: 'RESERVATION',
-        title: 'G\'raj Mahal',
+        title: "G'raj Mahal",
         price: '30',
         priceType: 'per person',
         stars: 0,
-        color: colors.blue,
+        color: Colors.blue,
       },
       {
         id: 13,
@@ -181,7 +176,7 @@ const listings = [
         price: '30',
         priceType: 'per person',
         stars: 0,
-        color: colors.black,
+        color: Colors.black,
       },
       {
         id: 14,
@@ -191,7 +186,7 @@ const listings = [
         price: '34',
         priceType: 'per person',
         stars: 0,
-        color: colors.brown01,
+        color: Colors.brown01,
       },
       {
         id: 15,
@@ -201,7 +196,7 @@ const listings = [
         price: '34',
         priceType: 'per person',
         stars: 0,
-        color: colors.green01,
+        color: Colors.green01,
       },
       {
         id: 16,
@@ -211,7 +206,7 @@ const listings = [
         price: '46',
         priceType: 'per person',
         stars: 0,
-        color: colors.gray04,
+        color: Colors.gray04,
       },
     ],
   },

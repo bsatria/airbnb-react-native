@@ -1,27 +1,54 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import { Colors, Images } from '../themes';
+import { Colors, AppStyles } from '../themes';
 import RoundedButton from '../components/buttons/RoundedButton';
+import NavBarButton from '../components/buttons/NavBarButton';
+import styles from './styles/LoggedOut';
+
+const airbnbLogo = require('../img/airbnb-logo.png');
 
 export default class LoggedOut extends Component {
-  onFacebook() {
-    alert('bagas keren');
+  static navigationOptions = ({ navigation }) => ({
+    headerRight: (
+      <NavBarButton
+        handleButtonPress={() => navigation.navigate('LogIn')}
+        location="right"
+        color={Colors.white}
+        text="Log In"
+      />
+    ),
+    headerStyle: AppStyles.transparentHeaderStyle,
+    headerTransparent: true,
+    headerTintColor: Colors.white,
+  });
+
+  static onFacebookPress() {
+    alert('Facebook button pressed');
   }
-  onCreateAccount() {
-    alert('asdasd');
+
+  static onCreateAccountPress() {
+    alert('Create Account button pressed');
   }
-  onMoreOption() {
-    alert('asdasd');
+
+  static onMoreOptionsPress() {
+    alert('More options button pressed');
   }
+
   render() {
     return (
-      <View style={styles.wrapper}>
+      <ScrollView style={styles.wrapper}>
         <View style={styles.welcomeWrapper}>
-          <Image style={styles.logo} source={Images.logoAirbnb} />
-          <Text style={styles.welcomeText}>Welcome to Airbnb</Text>
+          <Image source={airbnbLogo} style={styles.logo} />
+          <Text style={styles.welcomeText}>Welcome to Airbnb.</Text>
           <RoundedButton
+            text="Continue with Facebook"
             textColor={Colors.green01}
             background={Colors.white}
             icon={
@@ -31,85 +58,45 @@ export default class LoggedOut extends Component {
                 style={styles.facebookButtonIcon}
               />
             }
-            text="Continue with Facebook"
-            handleOnPress={this.onFacebook}
+            handleOnPress={this.onFacebookPress}
           />
           <RoundedButton
-            textColor={Colors.white}
             text="Create Account"
-            handleOnPress={this.onCreateAccount}
+            textColor={Colors.white}
+            handleOnPress={this.onCreateAccountPress}
           />
-          <TouchableOpacity
-            style={styles.moreOption}
-            onPress={this.onMoreOption}
+
+          <TouchableHighlight
+            style={styles.moreOptionsButton}
+            onPress={this.onMoreOptionsPress}
           >
-            <Text style={styles.moreOptionText}>More Options</Text>
-          </TouchableOpacity>
-          <View style={styles.termAndCondition}>
-            <Text style={styles.termText}>
-              By tapping Continue, Create Account or More Options,
+            <Text style={styles.moreOptionsButtonText}>More options</Text>
+          </TouchableHighlight>
+          <View style={styles.termsAndConditions}>
+            <Text style={styles.termsText}>
+              By tapping Continue, Create Account or More
             </Text>
-            <Text style={styles.termText}>I agree to Airbnb's </Text>
-            <TouchableOpacity style={styles.termLink}>
-              <Text style={styles.termText}>Term of Service</Text>
-            </TouchableOpacity>
+            <Text style={styles.termsText}>{' options,'}</Text>
+            <Text style={styles.termsText}>{"I agree to Airbnb's "}</Text>
+            <TouchableHighlight style={styles.linkButton}>
+              <Text style={styles.termsText}>Terms of Service</Text>
+            </TouchableHighlight>
+            <Text style={styles.termsText}>,</Text>
+            <TouchableHighlight style={styles.linkButton}>
+              <Text style={styles.termsText}>Payments Terms of Service</Text>
+            </TouchableHighlight>
+            <Text style={styles.termsText}>,</Text>
+            <TouchableHighlight style={styles.linkButton}>
+              <Text style={styles.termsText}>Privacy Policy</Text>
+            </TouchableHighlight>
+            <Text style={styles.termsText}>, and</Text>
+            <TouchableHighlight style={styles.linkButton}>
+              <Text style={styles.termsText}>Nondiscrimination Policy</Text>
+            </TouchableHighlight>
+            <Text style={styles.termsText}>.</Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    display: 'flex',
-    backgroundColor: Colors.green01,
-  },
-  welcomeWrapper: {
-    flex: 1,
-    display: 'flex',
-    marginTop: 30,
-    padding: 20,
-  },
-  welcomeText: {
-    fontSize: 30,
-    color: Colors.white,
-    fontWeight: '300',
-    marginBottom: 40,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-    marginTop: 50,
-    marginBottom: 40,
-  },
-  facebookButtonIcon: {
-    color: Colors.green01,
-    zIndex: 8,
-    position: 'relative',
-    left: 20,
-  },
-  moreOption: {
-    marginTop: 10,
-  },
-  moreOptionText: {
-    color: Colors.white,
-    fontSize: 16,
-  },
-  termAndCondition: {
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    marginTop: 30,
-  },
-  termText: {
-    color: Colors.white,
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  termLink: {
-    borderBottomWidth: 1,
-    borderColor: Colors.white,
-  },
-});

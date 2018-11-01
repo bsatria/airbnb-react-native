@@ -1,0 +1,4 @@
+#Tue Oct 30 23:09:01 WIB 2018
+base.0=/Users/besatria/Work/Android/airbnb-react-native/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

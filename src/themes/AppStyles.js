@@ -5,7 +5,11 @@ import Colors from './Colors';
 // Similar to an XML fragment layout in Android
 
 const width = Dimensions.get('window').width;
+const transparentHeaderStyle = {
+  borderBottomWidth: 0,
+  elevation: 0,
+};
 
-const ApplicationStyles = {};
+const ApplicationStyles = { transparentHeaderStyle };
 
 export default ApplicationStyles;
